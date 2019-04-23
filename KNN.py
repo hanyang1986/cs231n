@@ -1,4 +1,4 @@
-import ex
+
 import numpy as np
 
 class NearestNeighbor(object):
@@ -23,3 +23,10 @@ class NearestNeighbor(object):
       min_index = np.argmin(distances) # get the index with smallest distance
       Ypred[i] = self.ytr[min_index] # predict the label of the nearest example
     return Ypred
+
+nn = NearestNeighbor() # create a Nearest Neighbor classifier class
+nn.train(Xtr_rows, Ytr) # train the classifier on the training images and labels
+Yte_predict = nn.predict(Xte_rows) # predict labels on the test images
+print ('accuracy: %f' % ( np.mean(Yte_predict == Yte) ))
+
+
